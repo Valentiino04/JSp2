@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menor a 10</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Verificar Números Menores a 10</h1>
+    <button id="verificarNumeros">Verificar</button>
+    <div id="resultado"></div>
+
+    <script>
+        document.getElementById('verificarNumeros').addEventListener('click', () => {
+            let num1 = parseInt(prompt("Ingrese el primer valor: "));
+            let num2 = parseInt(prompt("Ingrese el segundo valor: "));
+            let num3 = parseInt(prompt("Ingrese el tercer valor: "));
+
+            if (isNaN(num1) || isNaN(num2) || isNaN(num3)) {
+                alert("Por favor, ingrese solo números válidos.");
+                return;
+            }
+
+            const resultadoDiv = document.getElementById('resultado');
+            if (num1 < 10 && num2 < 10 && num3 < 10) {
+                resultadoDiv.innerText = "Todos los números son menores a 10.";
+            } else {
+                resultadoDiv.innerText = "Existe uno o más números que son mayores o iguales a 10.";
+            }
+        });
+    </script>
+</body>
+</html>

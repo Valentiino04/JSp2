@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De menor a mayor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mostrar Números de Menor a Mayor</h1>
+    <button id="cargarEnteros">Generar Números</button>
+    <div id="resultado"></div>
+
+    <script>
+        function cargarEnteros() {
+            let entero1 = parseInt(prompt("Ingrese el entero menor: "));
+            let entero2 = parseInt(prompt("Ingrese el entero mayor: "));
+
+            if (isNaN(entero1) || isNaN(entero2)) {
+                alert("Por favor, ingrese solo números válidos.");
+                return;
+            }
+
+            if (entero1 >= entero2) {
+                alert("El primer número debe ser menor que el segundo.");
+                return;
+            }
+
+            const resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.innerText = "Números generados: ";
+
+            for (let f = entero1; f <= entero2; f++) {
+                resultadoDiv.innerText += f + ' ';
+            }
+        }
+
+        document.getElementById('cargarEnteros').addEventListener('click', cargarEnteros);
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Múltiplos de 10</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #resultados {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Múltiplos de 10</h1>
+    <button id="generarMultiplos">Generar Múltiplos</button>
+    <div id="resultados"></div>
+
+    <script>
+        document.getElementById('generarMultiplos').addEventListener('click', () => {
+            let termino = 10;
+            let resultado = [];
+
+            do {
+                resultado.push(termino);
+                termino += 10;
+            } while (termino <= 1500);
+
+            document.getElementById('resultados').innerText = resultado.join(' - ');
+        });
+    </script>
+</body>
+</html>

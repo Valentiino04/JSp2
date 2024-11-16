@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promedio de Calificaciones</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calcular Promedio de Calificaciones</h1>
+    <button id="calcularPromedio">Calcular Promedio</button>
+    <div id="resultado"></div>
+
+    <script>
+        document.getElementById('calcularPromedio').addEventListener('click', () => {
+            let nota1 = parseFloat(prompt('Ingrese la primera calificación del alumno:'));
+            let nota2 = parseFloat(prompt('Ingrese la segunda calificación del alumno:'));
+            let nota3 = parseFloat(prompt('Ingrese la tercera y última calificación del alumno:'));
+
+            if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3)) {
+                alert("Por favor, ingrese solo números válidos.");
+                return;
+            }
+
+            let promedio = Math.round((nota1 + nota2 + nota3) / 3);
+
+            const resultadoDiv = document.getElementById('resultado');
+            if (promedio < 7) {
+                resultadoDiv.innerText = `Con su promedio de ${promedio}, el alumno no promociona la materia.`;
+            } else {
+                resultadoDiv.innerText = `Con su promedio de ${promedio}, el alumno promociona la materia.`;
+            }
+        });
+    </script>
+</body>
+</html>

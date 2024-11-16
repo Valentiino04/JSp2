@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrada de Datos por JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulario de Datos</h1>
+    <button id="ingresarDatos">Ingresar Datos</button>
+    <div id="resultado"></div>
+
+    <script>
+        document.getElementById('ingresarDatos').addEventListener('click', () => {
+            let nombre = prompt('Ingrese su nombre:');
+            let email = prompt('Ingrese su email:');
+
+            if (nombre && email) {
+                const resultadoDiv = document.getElementById('resultado');
+                resultadoDiv.innerHTML = `Hola <strong>${nombre}</strong> (<a href="mailto:${email}">${email}</a>)`;
+            } else {
+                alert("Por favor, complete ambos campos.");
+            }
+        });
+    </script>
+</body>
+</html>

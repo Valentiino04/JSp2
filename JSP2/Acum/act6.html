@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listas Mayores y Menores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Comparar Listas</h1>
+    <button id="compararListas">Comparar Listas</button>
+    <div id="resultado"></div>
+
+    <script>
+        document.getElementById('compararListas').addEventListener('click', () => {
+            let sumaLista1 = 0;
+            let sumaLista2 = 0;
+
+            for (let i = 0; i < 3; i++) {
+                let valor;
+                do {
+                    valor = parseFloat(prompt(`Ingrese el valor ${i + 1} de la lista 1:`));
+                    if (isNaN(valor)) {
+                        alert("Por favor, ingrese un número válido.");
+                    }
+                } while (isNaN(valor));
+                sumaLista1 += valor;
+            }
+
+            for (let i = 0; i < 3; i++) {
+                let valor;
+                do {
+                    valor = parseFloat(prompt(`Ingrese el valor ${i + 1} de la lista 2:`));
+                    if (isNaN(valor)) {
+                        alert("Por favor, ingrese un número válido.");
+                    }
+                } while (isNaN(valor));
+                sumaLista2 += valor;
+            }
+
+            const resultadoDiv = document.getElementById('resultado');
+            if (sumaLista1 > sumaLista2) {
+                resultadoDiv.innerText = "Lista 1 mayor";
+            } else if (sumaLista2 > sumaLista1) {
+                resultadoDiv.innerText = "Lista 2 mayor";
+            } else {
+                resultadoDiv.innerText = "Listas iguales";
+            }
+        });
+    </script>
+</body>
+</html>

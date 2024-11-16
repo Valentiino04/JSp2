@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador Pares y Impares</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contador de Pares e Impares</h1>
+    <button id="calcularNumeros">Calcular</button>
+    <div id="resultado"></div>
+
+    <script>
+        document.getElementById('calcularNumeros').addEventListener('click', () => {
+            let pares = 0;
+            let impares = 0;
+
+            for (let i = 0; i < 5; i++) {
+                let numero;
+                do {
+                    numero = parseInt(prompt(`Ingrese el número ${i + 1}:`));
+                    if (isNaN(numero)) {
+                        alert("Por favor, ingrese un número válido.");
+                    }
+                } while (isNaN(numero));
+
+                if (numero % 2 === 0) {
+                    pares++;
+                } else {
+                    impares++;
+                }
+            }
+
+            const resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.innerHTML = `
+                <p>Cantidad de números pares: ${pares}</p>
+                <p>Cantidad de números impares: ${impares}</p>
+            `;
+        });
+    </script>
+</body>
+</html>

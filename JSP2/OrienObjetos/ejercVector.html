@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vector - Acumulados y Conteo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calcular Valores del Vector</h1>
+    <button id="rellenarVector">Rellenar Vector</button>
+    <div id="resultado"></div>
+
+    <script>
+        function rellenarVector() {
+            let vector = [];
+            let acumuladoTotal = 0;
+            let acumuladoMayor36 = 0;
+            let cantidadMayor50 = 0;
+
+            for (let i = 0; i < 8; i++) {
+                let elemento;
+                do {
+                    elemento = parseFloat(prompt(`Ingrese el elemento ${i + 1} del vector:`));
+                    if (isNaN(elemento)) {
+                        alert("Por favor, ingrese un número válido.");
+                    }
+                } while (isNaN(elemento));
+
+                vector.push(elemento);
+                acumuladoTotal += elemento;
+
+                if (elemento > 36) {
+                    acumuladoMayor36 += elemento;
+                }
+
+                if (elemento > 50) {
+                    cantidadMayor50++;
+                }
+            }
+
+            const resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.innerHTML = `
+                <p>Valor acumulado de todos los elementos del vector: ${acumuladoTotal}</p>
+                <p>Valor acumulado de los elementos mayores a 36: ${acumuladoMayor36}</p>
+                <p>Total de valores mayores a 50: ${cantidadMayor50}</p>
+            `;
+        }
+
+        document.getElementById('rellenarVector').addEventListener('click', rellenarVector);
+    </script>
+</body>
+</html>

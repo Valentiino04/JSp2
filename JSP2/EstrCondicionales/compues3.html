@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Dígitos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contador de Dígitos</h1>
+    <button id="contarDigitos">Contar Dígitos</button>
+    <div id="resultado"></div>
+
+    <script>
+        document.getElementById('contarDigitos').addEventListener('click', () => {
+            let valor = parseInt(prompt('Ingrese un número de uno o dos dígitos:'));
+
+            if (isNaN(valor)) {
+                alert("Por favor, ingrese un número válido.");
+                return;
+            }
+
+            const resultadoDiv = document.getElementById('resultado');
+
+            if (valor >= 0 && valor <= 9) {
+                resultadoDiv.innerText = "El número tiene un dígito.";
+            } else if (valor >= 10 && valor <= 99) {
+                resultadoDiv.innerText = "El número tiene dos dígitos.";
+            } else {
+                resultadoDiv.innerText = "El número no es de uno o dos dígitos.";
+            }
+        });
+    </script>
+</body>
+</html>

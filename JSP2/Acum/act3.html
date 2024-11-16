@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de sueldos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contador de Sueldos</h1>
+    <button id="calcularSueldos">Calcular Sueldos</button>
+    <div class="result" id="resultados"></div>
+
+    <script>
+        document.getElementById('calcularSueldos').addEventListener('click', () => {
+            let sueldoTotal = 0;
+            let empleadosEntre100y300 = 0;
+            let empleadosMasDe300 = 0;
+
+            for (let i = 0; i < 5; i++) {
+                let sueldo = parseFloat(prompt(`Ingrese el sueldo del empleado ${i + 1}:`));
+                if (isNaN(sueldo) || sueldo < 0) {
+                    alert("Por favor, ingrese un valor válido para el sueldo.");
+                    i--; // Reintentar la misma iteración
+                    continue;
+                }
+                sueldoTotal += sueldo;
+
+                if (sueldo >= 100 && sueldo <= 300) {
+                    empleadosEntre100y300++;
+                } else if (sueldo > 300) {
+                    empleadosMasDe300++;
+                }
+            }
+
+            const resultadosDiv = document.getElementById('resultados');
+            resultadosDiv.innerHTML = `
+                <p>Cantidad de empleados que cobran entre $100 y $300: ${empleadosEntre100y300}</p>
+                <p>Cantidad de empleados que cobran más de $300: ${empleadosMasDe300}</p>
+                <p>Importe total que gasta la empresa en sueldos: $${sueldoTotal.toFixed(2)}</p>
+            `;
+        });
+    </script>
+</body>
+</html>

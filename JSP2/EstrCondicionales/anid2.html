@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suma y Multiplicación Condicional</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Suma y Multiplicación Condicional</h1>
+    <button id="calcular">Calcular</button>
+    <div id="resultado"></div>
+
+    <script>
+        document.getElementById('calcular').addEventListener('click', () => {
+            let num1 = parseInt(prompt("Ingrese el primer valor: "));
+            let num2 = parseInt(prompt("Ingrese el segundo valor: "));
+            let num3 = parseInt(prompt("Ingrese el tercer valor: "));
+
+            if (isNaN(num1) || isNaN(num2) || isNaN(num3)) {
+                alert("Por favor, ingrese solo números válidos.");
+                return;
+            }
+
+            const resultadoDiv = document.getElementById('resultado');
+            if (num1 === num2 && num2 === num3) {
+                let resultado = (num1 + num2) * num3;
+                resultadoDiv.innerText = `La suma de los dos primeros números multiplicada por el tercer número es: ${resultado}`;
+            } else {
+                resultadoDiv.innerText = "Los números NO son iguales.";
+            }
+        });
+    </script>
+</body>
+</html>
